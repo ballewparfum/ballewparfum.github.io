@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BALLEW PARFUM</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<section class="hero">
+    <img src="images/logo.svg" class="logo" alt="Ballew Parfum">
+    <button class="primary" onclick="document.getElementById('scents').scrollIntoView({behavior:'smooth'})">EXPLORE SCENTS</button>
+    <button class="secondary" onclick="openClub()">PARFUM CLUB</button>
+</section>
+
+<section id="scents" class="scents">
+    <h2>Our Scents</h2>
+    <div class="grid">
+
+        <div class="card" onclick="openScent('provocative')">
+            <img src="images/provocative.jpg">
+            <h3>PROVOCATIVE</h3>
+            <p>Male-leaning</p>
+            <p>$80 · 30mL &nbsp;&nbsp; $150 · 50mL</p>
+        </div>
+
+        <div class="card" onclick="openScent('elusive')">
+            <img src="images/elusive.jpg">
+            <h3>ELUSIVE</h3>
+            <p>Male-leaning</p>
+            <p>$80 · 30mL &nbsp;&nbsp; $150 · 50mL</p>
+        </div>
+
+        <div class="card" onclick="openScent('apparition')">
+            <img src="images/apparition.jpg">
+            <h3>APPARITION</h3>
+            <p>Unisex</p>
+            <p>$80 · 30mL &nbsp;&nbsp; $150 · 50mL</p>
+        </div>
+
+        <div class="card" onclick="openScent('desert')">
+            <img src="images/desert.jpg">
+            <h3>DESERT APPARITION</h3>
+            <p>Unisex</p>
+            <p>$80 · 30mL &nbsp;&nbsp; $150 · 50mL</p>
+        </div>
+
+    </div>
+</section>
+
+<div id="scentModal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeScent()" class="close">×</span>
+    <h2 id="scentTitle"></h2>
+    <p id="scentNotes"></p>
+    <p id="scentDesc"></p>
+    <select>
+      <option>30mL — $80</option>
+      <option>50mL — $150</option>
+    </select>
+    <button class="primary">BUY — COMING SOON</button>
+  </div>
+</div>
+
+<div id="clubModal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeClub()" class="close">×</span>
+    <h2>Join the Ballew Parfum Club</h2>
+    <input type="email" placeholder="Your email">
+    <button class="primary">Join</button>
+    <p class="small">
+      Thank-you for joining the Ballew Parfum Club. This club will not be open to the public forever.  
+      Here you will get exclusive access to limited releases and special discounts.  
+      Stay in the loop and continue with us through this journey of discovery and wonder.
+    </p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
