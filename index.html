@@ -57,8 +57,14 @@
     <p id="scentNotes"></p>
     <p id="scentDesc"></p>
     <div class="buy-options">
-      <a id="buy30" href="#" target="_blank" class="primary buy-btn">Buy 30mL</a>
-      <a id="buy50" href="#" target="_blank" class="secondary buy-btn">Buy 50mL</a>
+      <select id="sizeSelect" class="size-select">
+        <option value="30">30mL — $80</option>
+        <option value="50">50mL — $150</option>
+      </select>
+
+      <a id="buyButton" href="#" target="_blank" class="primary buy-btn">
+        Purchase
+      </a>
     </div>
   </div>
 </div>
@@ -99,8 +105,16 @@ function setBuyLinks(scent) {
     }
   };
 
-  document.getElementById("buy30").href = links[scent].m30;
-  document.getElementById("buy50").href = links[scent].m50;
+  window.currentScent = scent;
+
+  function updateBuyLink() {
+    const size = document.getElementById("sizeSelect").value;
+    document.getElementById("buyButton").href = links[scent][size === "30" ? "m30" : "m50"];
+  }
+
+  updateBuyLink();
+
+  document.getElementById("sizeSelect").onchange = updateBuyLink;
 }
 </script>
 <script src="script.js"></script>
