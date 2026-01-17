@@ -47,6 +47,13 @@
             <p>$80 · 30mL &nbsp;&nbsp; $150 · 50mL</p>
         </div>
 
+        <div class="card" onclick="openDiscoverySet()">
+          <img src="images/discovery.jpg">
+          <h3>DISCOVERY SET</h3>
+          <p>All Four Scents</p>
+          <p>$60 · Limited</p>
+        </div>
+
     </div>
 </section>
 
@@ -64,6 +71,29 @@
 
       <a id="buyButton" href="#" target="_blank" class="primary buy-btn">
         Purchase
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="discoveryModal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeDiscovery()" class="close">×</span>
+    <h2>DISCOVERY SET</h2>
+    <p>
+      A curated introduction to the BALLEW universe.
+      Experience all four fragrances in a single set designed
+      to explore identity, presence, and reaction.
+    </p>
+    <p>
+      Includes: PROVOCATIVE · ELUSIVE · APPARITION · DESERT APPARITION
+    </p>
+
+    <div class="buy-options">
+      <a href="https://buy.stripe.com/aFa5kC1YW41maKvgq183C08"
+         target="_blank"
+         class="primary buy-btn">
+        Purchase — $60
       </a>
     </div>
   </div>
@@ -115,6 +145,14 @@ function setBuyLinks(scent) {
   updateBuyLink();
 
   document.getElementById("sizeSelect").onchange = updateBuyLink;
+}
+
+function openDiscoverySet() {
+  document.getElementById("discoveryModal").style.display = "flex";
+}
+
+function closeDiscovery() {
+  document.getElementById("discoveryModal").style.display = "none";
 }
 </script>
 <script src="script.js"></script>
