@@ -56,11 +56,10 @@
     <h2 id="scentTitle"></h2>
     <p id="scentNotes"></p>
     <p id="scentDesc"></p>
-    <select>
-      <option>30mL — $80</option>
-      <option>50mL — $150</option>
-    </select>
-    <button class="primary">BUY — COMING SOON</button>
+    <div class="buy-options">
+      <a id="buy30" href="#" target="_blank" class="primary buy-btn">Buy 30mL</a>
+      <a id="buy50" href="#" target="_blank" class="secondary buy-btn">Buy 50mL</a>
+    </div>
   </div>
 </div>
 
@@ -79,6 +78,31 @@
 </div>
 </div>
 
+<script>
+function setBuyLinks(scent) {
+  const links = {
+    provocative: {
+      m30: "https://buy.stripe.com/5kQfZg9roapK19V4Hj83C00",
+      m50: "https://buy.stripe.com/7sYbJ0bzwbtObOzc9L83C01"
+    },
+    elusive: {
+      m30: "https://buy.stripe.com/fZu5kC6fceG05qb4Hj83C04",
+      m50: "https://buy.stripe.com/8x28wOavs41maKv7Tv83C05"
+    },
+    apparition: {
+      m30: "https://buy.stripe.com/cNi3cudHEdBW05R6Pr83C02",
+      m50: "https://buy.stripe.com/fZuaEWfPM2Xif0L1v783C03"
+    },
+    desert: {
+      m30: "https://buy.stripe.com/eVqcN46fc0Pa2dZ2zb83C06",
+      m50: "https://buy.stripe.com/14A8wO0USapKcSDehT83C07"
+    }
+  };
+
+  document.getElementById("buy30").href = links[scent].m30;
+  document.getElementById("buy50").href = links[scent].m50;
+}
+</script>
 <script src="script.js"></script>
 </body>
 </html>
