@@ -25,6 +25,11 @@ function openScent(key){
   document.getElementById("scentTitle").innerText = scents[key].title;
   document.getElementById("scentNotes").innerText = scents[key].notes;
   document.getElementById("scentDesc").innerText = scents[key].desc;
+
+  if (typeof setBuyLinks === "function") {
+    setBuyLinks(key);
+  }
+
   document.getElementById("scentModal").style.display="flex";
 }
 
