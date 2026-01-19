@@ -106,3 +106,47 @@ button {
     cursor:pointer;
     font-size:24px;
 }
+
+/* ---------- Mobile Optimization ---------- */
+@media (max-width: 768px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    .hero {
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .logo {
+        max-width: 320px;
+        margin-bottom: 40px;
+    }
+
+    button {
+        width: 100%;
+        max-width: 320px;
+        font-size: 16px;
+        padding: 18px 24px;
+    }
+
+    .scents {
+        padding: 60px 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .card img {
+        height: 300px;
+    }
+
+    .modal-content {
+        width: 90%;
+        max-width: 420px;
+        padding: 28px;
+    }
+}
