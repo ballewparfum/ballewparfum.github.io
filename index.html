@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BALLEW PARFUM</title>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -147,6 +148,24 @@ function setBuyLinks(scent) {
   document.getElementById("sizeSelect").onchange = updateBuyLink;
 }
 
+function openScent(scent) {
+    history.pushState(null, "", "?scent=" + scent);
+
+    document.getElementById("scentModal").style.display = "flex";
+
+    const data = scentData[scent];
+    document.getElementById("scentTitle").innerText = data.title;
+    document.getElementById("scentNotes").innerText = data.notes;
+    document.getElementById("scentDesc").innerText = data.description;
+
+    setBuyLinks(scent);
+}
+
+function closeScent() {
+    document.getElementById("scentModal").style.display = "none";
+    history.pushState(null, "", window.location.pathname);
+}
+
 function openDiscoverySet() {
   document.getElementById("discoveryModal").style.display = "flex";
 }
@@ -154,6 +173,14 @@ function openDiscoverySet() {
 function closeDiscovery() {
   document.getElementById("discoveryModal").style.display = "none";
 }
+
+window.addEventListener("load", () => {
+    const params = new URLSearchParams(window.location.search);
+    const scent = params.get("scent");
+    if (scent && typeof openScent === "function") {
+        openScent(scent);
+    }
+});
 </script>
 <script src="script.js"></script>
 </body>
