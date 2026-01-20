@@ -74,12 +74,15 @@
         Purchase
       </a>
     </div>
+    <button class="secondary share-btn" onclick="shareCurrentScent()">
+      Share This Scent
+    </button>
   </div>
 </div>
 
 <div id="discoveryModal" class="modal">
   <div class="modal-content">
-    <span onclick="closeDiscovery()" class="close">×</span>
+    <img src="images/discovery.jpg" class="modal-image" alt="Discovery Set">
     <h2>DISCOVERY SET — Baby Shower Edition</h2>
     <p>
       A curated introduction to the BALLEW universe.
@@ -167,19 +170,42 @@ function closeScent() {
 }
 
 function openDiscoverySet() {
+  history.pushState(null, "", "?set=discovery");
   document.getElementById("discoveryModal").style.display = "flex";
 }
 
 function closeDiscovery() {
   document.getElementById("discoveryModal").style.display = "none";
+  history.pushState(null, "", window.location.pathname);
+}
+
+function shareCurrentScent() {
+  const url = window.location.href;
+
+  if (navigator.share) {
+    navigator.share({
+      title: document.getElementById("scentTitle").innerText,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(url);
+    alert("Link copied to clipboard");
+  }
 }
 
 window.addEventListener("load", () => {
-    const params = new URLSearchParams(window.location.search);
-    const scent = params.get("scent");
-    if (scent && typeof openScent === "function") {
-        openScent(scent);
-    }
+  const params = new URLSearchParams(window.location.search);
+
+  const scent = params.get("scent");
+  const set = params.get("set");
+
+  if (scent && typeof openScent === "function") {
+    openScent(scent);
+  }
+
+  if (set === "discovery") {
+    openDiscoverySet();
+  }
 });
 </script>
 <script src="script.js"></script>
