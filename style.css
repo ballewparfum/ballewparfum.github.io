@@ -150,3 +150,12 @@ button {
         padding: 28px;
     }
 }
+
+@media (min-width: 769px) {
+  .card img {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    background: #ffffff;
+  }
+}
