@@ -205,3 +205,31 @@ button {
     justify-content: center;
     flex-wrap: wrap;
 }
+
+/* ---------- Luxury Purchase Button (Matches Dropdown Styling) ---------- */
+.buy-btn {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    padding: 12px 26px;
+
+    background-color: #ffffff;
+    color: #111;
+
+    border: 1px solid #d6d6d6;
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.buy-btn:hover {
+    border-color: #b5b5b5;
+    background: #fafafa;
+}
+
+.buy-btn:active {
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
+}
