@@ -1,22 +1,22 @@
 const scents = {
   provocative: {
     title:"PROVOCATIVE",
-    notes:"Wood · Amber · Cacao · Pepper",
+    notes:"Oxygen · Metallic · Chai · Cacao",
     desc:"Designed to command attention. Warm, dark and addictive — this scent turns presence into power."
   },
   elusive: {
     title:"ELUSIVE",
-    notes:"Bergamot · Sandalwood · Black Musk · Oud",
+    notes:"Black Musk · Oud · Bergamot · Sheer",
     desc:"Mysterious and magnetic. A fragrance that lingers in memory long after you leave."
   },
   apparition: {
     title:"APPARITION",
-    notes:"White Musk · Rose · Amber · Apple Blossom",
+    notes:"Marine · Apple Blossom · Orris · White Musk",
     desc:"Soft, radiant and sensual — a ghost of beauty that surrounds you."
   },
   desert: {
     title:"DESERT APPARITION",
-    notes:"White Musk · Sandalwood · Marine · Apple Blossom",
+    notes:"Sandalwood · Rose · Amber · Oxygen",
     desc:"Airy, warm and untouchable — like a mirage in golden light."
   }
 };
