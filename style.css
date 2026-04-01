@@ -101,6 +101,20 @@ button {
     text-align:center;
 }
 
+.modal-image {
+    width: 320px;
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto 20px auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .modal-image {
+        width: 260px;
+    }
+}
+
 .close {
     float:right;
     cursor:pointer;
