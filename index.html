@@ -183,18 +183,18 @@ function openScent(scent) {
     document.getElementById("scentNotes").innerText = data.notes;
     document.getElementById("scentDesc").innerText = data.description;
 
-    // Map scents to exact filenames
+    // Map scents to their exact modal image filenames
     const imageFilenames = {
         provocative: "provactive.jpg",
         elusive: "elusive.jpg",
         apparition: "appatition.jpg",
-        desert: "desert apparition.jpg"
+        desert: "desert apparition.jpg",
+        discovery: "discovery.jpg"
     };
 
     const img = document.getElementById("scentImage");
-    img.src = "images/" + encodeURI(imageFilenames[scent]); // encode spaces
+    img.src = "images/" + imageFilenames[scent];
     img.alt = data.title + " fragrance image";
-    console.log("Setting modal image src to:", img.src); // debug log
 
     setBuyLinks(scent);
 }
