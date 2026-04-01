@@ -186,11 +186,12 @@ function openScent(scent) {
         provocative: "provactive.jpg",
         elusive: "elusive.jpg",
         apparition: "appatition.jpg",
-        desert: "desert%20apparition.jpg"
+        desert: "desert apparition.jpg"
     };
 
-    document.getElementById("scentImage").src = "images/" + imageFilenames[scent];
-    document.getElementById("scentImage").alt = data.title + " fragrance image";
+    const img = document.getElementById("scentImage");
+    img.src = "images/" + imageFilenames[scent];
+    img.alt = data.title + " fragrance image";
 
     setBuyLinks(scent);
 }
