@@ -175,13 +175,15 @@ function setBuyLinks(scent) {
 function openScent(scent) {
     history.pushState(null, "", "?scent=" + scent);
 
-    document.getElementById("scentModal").style.display = "flex";
+    const modal = document.getElementById("scentModal");
+    modal.style.display = "flex";
 
     const data = scentData[scent];
     document.getElementById("scentTitle").innerText = data.title;
     document.getElementById("scentNotes").innerText = data.notes;
     document.getElementById("scentDesc").innerText = data.description;
 
+    // Map scents to exact filenames
     const imageFilenames = {
         provocative: "provactive.jpg",
         elusive: "elusive.jpg",
@@ -190,8 +192,9 @@ function openScent(scent) {
     };
 
     const img = document.getElementById("scentImage");
-    img.src = "images/" + imageFilenames[scent];
+    img.src = "images/" + encodeURI(imageFilenames[scent]); // encode spaces
     img.alt = data.title + " fragrance image";
+    console.log("Setting modal image src to:", img.src); // debug log
 
     setBuyLinks(scent);
 }
