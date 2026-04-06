@@ -183,19 +183,6 @@ function openScent(scent) {
     document.getElementById("scentNotes").innerText = data.notes;
     document.getElementById("scentDesc").innerText = data.description;
 
-    // Map scents to their exact modal image filenames
-    const imageFilenames = {
-        provocative: "provocative.jpg",
-        elusive: "elusive.jpg",
-        apparition: "appatition.jpg",
-        desert: "desert.jpg",
-        discovery: "discovery.jpg"
-    };
-
-    const img = document.getElementById("scentImage");
-    img.src = "images/" + imageFilenames[scent];
-    img.alt = data.title + " fragrance image";
-
     setBuyLinks(scent);
 }
 
