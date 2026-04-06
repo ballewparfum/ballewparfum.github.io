@@ -82,7 +82,7 @@
   <div class="modal-content">
     <span onclick="closeScent()" class="close">×</span>
     <h2 id="scentTitle"></h2>
-    <img id="scentImage" class="modal-image" src="images/provocative.jpg" alt="Provocative fragrance image" style="display:none;">
+    <img src="images/provocative.jpg" class="modal-image" alt="Provocative fragrance image">
     <p id="scentNotes"></p>
     <p id="scentDesc"></p>
     <div class="buy-options">
@@ -183,14 +183,6 @@ function openScent(scent) {
     document.getElementById("scentTitle").innerText = data.title;
     document.getElementById("scentNotes").innerText = data.notes;
     document.getElementById("scentDesc").innerText = data.description;
-
-    // Show image only for Provocative, hide for others
-    const img = document.getElementById('scentImage');
-    if (scent === 'provocative') {
-        img.style.display = 'block';
-    } else {
-        img.style.display = 'none';
-    }
 
     setBuyLinks(scent);
 }
