@@ -40,28 +40,28 @@
     <h2>Our Scents</h2>
     <div class="grid">
 
-        <div class="card" onclick="openScent('provocative')">
+        <div class="card" onclick="openProvocative()">
             <img src="images/provocative.jpg">
             <h3>PROVOCATIVE</h3>
             <p>Male-leaning</p>
             <p>$80 · 30mL &nbsp;&nbsp; $150 · 50mL</p>
         </div>
 
-        <div class="card" onclick="openScent('elusive')">
+        <div class="card" onclick="openElusive()">
             <img src="images/elusive.jpg">
             <h3>ELUSIVE</h3>
             <p>Male-leaning</p>
             <p>$80 · 30mL &nbsp;&nbsp; $150 · 50mL</p>
         </div>
 
-        <div class="card" onclick="openScent('apparition')">
+        <div class="card" onclick="openApparition()">
             <img src="images/apparition.jpg">
             <h3>APPARITION</h3>
             <p>Unisex</p>
             <p>$80 · 30mL &nbsp;&nbsp; $150 · 50mL</p>
         </div>
 
-        <div class="card" onclick="openScent('desert')">
+        <div class="card" onclick="openDesert()">
             <img src="images/desert.jpg">
             <h3>DESERT APPARITION</h3>
             <p>Unisex</p>
@@ -78,26 +78,75 @@
     </div>
 </section>
 
-<div id="scentModal" class="modal">
+<div id="provocativeModal" class="modal">
   <div class="modal-content">
-    <span onclick="closeScent()" class="close">×</span>
-    <h2 id="scentTitle"></h2>
+    <span onclick="closeProvocative()" class="close">×</span>
+    <h2>PROVOCATIVE</h2>
     <img src="images/provocative.jpg" class="modal-image" alt="Provocative fragrance image">
-    <p id="scentNotes"></p>
-    <p id="scentDesc"></p>
+    <p>Oxygen · Metallic · Chai · Cacao</p>
+    <p>Designed to command attention. Warm, dark and addictive — this scent turns presence into power.</p>
     <div class="buy-options">
-      <select id="sizeSelect" class="size-select">
+      <select id="sizeSelectProvocative" class="size-select" onchange="updateBuyLinkProvocative()">
         <option value="30">30mL — $80</option>
         <option value="50">50mL — $150</option>
       </select>
-
-      <a id="buyButton" href="#" target="_blank" class="primary buy-btn">
-        Purchase
-      </a>
+      <a id="buyButtonProvocative" href="https://buy.stripe.com/5kQfZg9roapK19V4Hj83C00" target="_blank" class="primary buy-btn">Purchase</a>
     </div>
-    <button class="secondary share-btn" onclick="shareCurrentScent()">
-      Share This Scent
-    </button>
+    <button class="secondary share-btn" onclick="shareCurrentScent()">Share This Scent</button>
+  </div>
+</div>
+
+<div id="elusiveModal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeElusive()" class="close">×</span>
+    <h2>ELUSIVE</h2>
+    <img src="images/elusive.jpg" class="modal-image" alt="Elusive fragrance image">
+    <p>Ozone · Pine · Leather · Amber</p>
+    <p>Mysterious and compelling. A scent that evokes a hidden depth and subtle strength.</p>
+    <div class="buy-options">
+      <select id="sizeSelectElusive" class="size-select" onchange="updateBuyLinkElusive()">
+        <option value="30">30mL — $80</option>
+        <option value="50">50mL — $150</option>
+      </select>
+      <a id="buyButtonElusive" href="https://buy.stripe.com/fZu5kC6fceG05qb4Hj83C04" target="_blank" class="primary buy-btn">Purchase</a>
+    </div>
+    <button class="secondary share-btn" onclick="shareCurrentScent()">Share This Scent</button>
+  </div>
+</div>
+
+<div id="apparitionModal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeApparition()" class="close">×</span>
+    <h2>APPARITION</h2>
+    <img src="images/apparition.jpg" class="modal-image" alt="Apparition fragrance image">
+    <p>Lavender · Citrus · Musk · Vanilla</p>
+    <p>A unisex fragrance that blends softness and intrigue for a modern signature scent.</p>
+    <div class="buy-options">
+      <select id="sizeSelectApparition" class="size-select" onchange="updateBuyLinkApparition()">
+        <option value="30">30mL — $80</option>
+        <option value="50">50mL — $150</option>
+      </select>
+      <a id="buyButtonApparition" href="https://buy.stripe.com/cNi3cudHEdBW05R6Pr83C02" target="_blank" class="primary buy-btn">Purchase</a>
+    </div>
+    <button class="secondary share-btn" onclick="shareCurrentScent()">Share This Scent</button>
+  </div>
+</div>
+
+<div id="desertModal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeDesert()" class="close">×</span>
+    <h2>DESERT APPARITION</h2>
+    <img src="images/desert.jpg" class="modal-image" alt="Desert Apparition fragrance image">
+    <p>Spice · Sandalwood · Amber · Citrus</p>
+    <p>Evoking the vastness of the desert, this scent is warm, dry, and unforgettable.</p>
+    <div class="buy-options">
+      <select id="sizeSelectDesert" class="size-select" onchange="updateBuyLinkDesert()">
+        <option value="30">30mL — $80</option>
+        <option value="50">50mL — $150</option>
+      </select>
+      <a id="buyButtonDesert" href="https://buy.stripe.com/eVqcN46fc0Pa2dZ2zb83C06" target="_blank" class="primary buy-btn">Purchase</a>
+    </div>
+    <button class="secondary share-btn" onclick="shareCurrentScent()">Share This Scent</button>
   </div>
 </div>
 
@@ -141,55 +190,52 @@
 </div>
 
 <script>
-function setBuyLinks(scent) {
-  const links = {
-    provocative: {
-      m30: "https://buy.stripe.com/5kQfZg9roapK19V4Hj83C00",
-      m50: "https://buy.stripe.com/7sYbJ0bzwbtObOzc9L83C01"
-    },
-    elusive: {
-      m30: "https://buy.stripe.com/fZu5kC6fceG05qb4Hj83C04",
-      m50: "https://buy.stripe.com/8x28wOavs41maKv7Tv83C05"
-    },
-    apparition: {
-      m30: "https://buy.stripe.com/cNi3cudHEdBW05R6Pr83C02",
-      m50: "https://buy.stripe.com/fZuaEWfPM2Xif0L1v783C03"
-    },
-    desert: {
-      m30: "https://buy.stripe.com/eVqcN46fc0Pa2dZ2zb83C06",
-      m50: "https://buy.stripe.com/14A8wO0USapKcSDehT83C07"
-    }
-  };
-
-  window.currentScent = scent;
-
-  function updateBuyLink() {
-    const size = document.getElementById("sizeSelect").value;
-    document.getElementById("buyButton").href = links[scent][size === "30" ? "m30" : "m50"];
-  }
-
-  updateBuyLink();
-
-  document.getElementById("sizeSelect").onchange = updateBuyLink;
+function openProvocative() {
+  document.getElementById('provocativeModal').style.display = 'flex';
+}
+function closeProvocative() {
+  document.getElementById('provocativeModal').style.display = 'none';
+}
+function updateBuyLinkProvocative() {
+  const size = document.getElementById('sizeSelectProvocative').value;
+  const link = size === '30' ? "https://buy.stripe.com/5kQfZg9roapK19V4Hj83C00" : "https://buy.stripe.com/7sYbJ0bzwbtObOzc9L83C01";
+  document.getElementById('buyButtonProvocative').href = link;
 }
 
-function openScent(scent) {
-    history.pushState(null, "", "?scent=" + scent);
-
-    const modal = document.getElementById("scentModal");
-    modal.style.display = "flex";
-
-    const data = scentData[scent];
-    document.getElementById("scentTitle").innerText = data.title;
-    document.getElementById("scentNotes").innerText = data.notes;
-    document.getElementById("scentDesc").innerText = data.description;
-
-    setBuyLinks(scent);
+function openElusive() {
+  document.getElementById('elusiveModal').style.display = 'flex';
+}
+function closeElusive() {
+  document.getElementById('elusiveModal').style.display = 'none';
+}
+function updateBuyLinkElusive() {
+  const size = document.getElementById('sizeSelectElusive').value;
+  const link = size === '30' ? "https://buy.stripe.com/fZu5kC6fceG05qb4Hj83C04" : "https://buy.stripe.com/8x28wOavs41maKv7Tv83C05";
+  document.getElementById('buyButtonElusive').href = link;
 }
 
-function closeScent() {
-    document.getElementById("scentModal").style.display = "none";
-    history.pushState(null, "", window.location.pathname);
+function openApparition() {
+  document.getElementById('apparitionModal').style.display = 'flex';
+}
+function closeApparition() {
+  document.getElementById('apparitionModal').style.display = 'none';
+}
+function updateBuyLinkApparition() {
+  const size = document.getElementById('sizeSelectApparition').value;
+  const link = size === '30' ? "https://buy.stripe.com/cNi3cudHEdBW05R6Pr83C02" : "https://buy.stripe.com/fZuaEWfPM2Xif0L1v783C03";
+  document.getElementById('buyButtonApparition').href = link;
+}
+
+function openDesert() {
+  document.getElementById('desertModal').style.display = 'flex';
+}
+function closeDesert() {
+  document.getElementById('desertModal').style.display = 'none';
+}
+function updateBuyLinkDesert() {
+  const size = document.getElementById('sizeSelectDesert').value;
+  const link = size === '30' ? "https://buy.stripe.com/eVqcN46fc0Pa2dZ2zb83C06" : "https://buy.stripe.com/14A8wO0USapKcSDehT83C07";
+  document.getElementById('buyButtonDesert').href = link;
 }
 
 function openDiscoverySet() {
@@ -207,7 +253,7 @@ function shareCurrentScent() {
 
   if (navigator.share) {
     navigator.share({
-      title: document.getElementById("scentTitle").innerText,
+      title: document.querySelector(".modal-content h2").innerText,
       url: url
     });
   } else {
@@ -221,10 +267,6 @@ window.addEventListener("load", () => {
 
   const scent = params.get("scent");
   const set = params.get("set");
-
-  if (scent && typeof openScent === "function") {
-    openScent(scent);
-  }
 
   if (set === "discovery") {
     openDiscoverySet();
