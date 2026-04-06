@@ -82,10 +82,7 @@
   <div class="modal-content">
     <span onclick="closeScent()" class="close">×</span>
     <h2 id="scentTitle"></h2>
-    <img src="images/provocative.jpg" class="modal-image" alt="Provocative fragrance image">
-    <img src="images/elusive.jpg" class="modal-image" alt="Elusive fragrance image">
-    <img src="images/apparition.jpg" class="modal-image" alt="Apparition fragrance image">
-    <img src="images/desert.jpg" class="modal-image" alt="Desert Apparition fragrance image">
+    <img id="scentImage" class="modal-image" src="" alt="Fragrance image">
     <p id="scentNotes"></p>
     <p id="scentDesc"></p>
     <div class="buy-options">
@@ -186,6 +183,10 @@ function openScent(scent) {
     document.getElementById("scentTitle").innerText = data.title;
     document.getElementById("scentNotes").innerText = data.notes;
     document.getElementById("scentDesc").innerText = data.description;
+
+    const img = document.getElementById('scentImage');
+    img.src = 'images/' + scent + '.jpg';
+    img.alt = data.title + ' fragrance image';
 
     setBuyLinks(scent);
 }
