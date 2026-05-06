@@ -247,3 +247,33 @@ function decreaseQty(index) {
   localStorage.setItem('cart', JSON.stringify(cart));
   renderCart();
 }
+async function checkoutCart() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  if (cart.length === 0) {
+    alert("Your cart is empty");
+    return;
+  }
+
+  try {
+    const response = await fetch('/api/create-checkout-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ cart })
+    });
+
+    const data = await response.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert("Checkout failed.");
+    }
+
+  } catch (err) {
+    console.error(err);
+    alert("Error connecting to Stripe checkout.");
+  }
+}
