@@ -1,0 +1,24 @@
+{
+  "name": "ballewparfum.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ballewparfum/ballewparfum.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ballewparfum/ballewparfum.github.io/issues"
+  },
+  "homepage": "https://github.com/ballewparfum/ballewparfum.github.io#readme",
+  "dependencies": {
+    "stripe": "^22.1.0"
+  }
+}
