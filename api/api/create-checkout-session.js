@@ -11,15 +11,17 @@ export default async function handler(req, res) {
     const { cart } = req.body;
 
     const line_items = cart.map(item => ({
-      price_data: {
-        currency: 'usd',
-        product_data: {
-          name: `${item.name} ${item.size ? item.size + 'mL' : ''}`,
-        },
-        unit_amount: item.price * 100,
-      },
-      quantity: item.quantity,
-    }));
+  price_data: {
+    currency: 'usd',
+    product_data: {
+      name: item.size
+        ? `${item.name} — ${item.size}mL`
+        : item.name,
+    },
+    unit_amount: Math.round(item.price * 100),
+  },
+  quantity: item.quantity,
+}));
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
