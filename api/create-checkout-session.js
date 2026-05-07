@@ -28,8 +28,14 @@ export default async function handler(req, res) {
       line_items,
       mode: 'payment',
 
+      shipping_options: [
+  {
+    shipping_rate: 'shr_1SqcXACoBlY1hiCREwrOAoOB'
+  }
+],
+
       allow_promotion_codes: true,
-      
+
       shipping_address_collection: {
         allowed_countries: ['US'],
       },
