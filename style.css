@@ -33,8 +33,32 @@ button {
 }
 
 .secondary {
-    background:transparent;
-    border:1px solid black;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    padding: 12px 26px;
+
+    background-color: #ffffff;
+    color: #111;
+
+    border: 1px solid #d6d6d6;
+    border-radius: 6px;
+
+   transition: border-color 0.25s ease,
+            box-shadow 0.25s ease,
+            background-color 0.25s ease,
+            transform 0.2s ease;
+}
+
+.secondary:hover {
+    border-color: #b5b5b5;
+    background: #fafafa;
+    transform: translateY(-1px);
+}
+
+.secondary:active {
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
 }
 
 .scents {
