@@ -163,6 +163,20 @@ button {
         max-width: 420px;
         padding: 28px;
     }
+    .cart-btn {
+    width: auto;
+    max-width: none;
+
+    padding: 10px 18px;
+
+    top: 14px;
+    right: 14px;
+
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    border-radius: 999px;
+}
 }
 
 @media (min-width: 769px) {
