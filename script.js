@@ -277,3 +277,20 @@ async function checkoutCart() {
     alert("Error connecting to Stripe checkout.");
   }
 }
+// ---------------- Share Logic ----------------
+
+function shareScent(key) {
+  const url = `${window.location.origin}?scent=${key}`;
+
+  navigator.clipboard.writeText(url);
+
+  alert(`${scents[key].title} link copied`);
+}
+
+// Auto-open scent from shared link
+const params = new URLSearchParams(window.location.search);
+const scentFromUrl = params.get("scent");
+
+if (scentFromUrl && scents[scentFromUrl]) {
+  openScent(scentFromUrl);
+}
